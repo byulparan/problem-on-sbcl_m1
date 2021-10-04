@@ -1,6 +1,6 @@
-# SBCL Problem on Apple M1
-  I have some problem on SBCL/Apple M1 Silicon
-
+# SBCL Problem on Apple Silicon M1
+  I have some problem on SBCL Apple Silicon M1.  
+  https://www.youtube.com/watch?v=m22H8Z8HadI
   
 ## cocoa
   1. build foreign-library(make)
@@ -13,10 +13,12 @@
      ```
 
  click the Button, then call (room) lisp function.  
- look *Control stack usage*, every click to increase usage in M1 native SBCL  
+ look *Control stack usage*, every click(call lisp-callback) to increase usage in native SBCL-arm64  
  but SBCL-x86_64 is not.
 	 
 ## shm-open
+ Can't access shared memory which opened by sbcl(arm64)
+ 
 ## glfw-blit-framebuffer
-
+ Error when call gl:blit-framebuffer on sbcl(arm64) but works on ecl(arm64) 
       
