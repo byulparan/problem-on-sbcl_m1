@@ -8,6 +8,7 @@
 
 (defvar *fd*)
 
+
 (setf *fd*
   (let* ((fd
 	   (shm-open "/tmp/shm-foo"
@@ -16,15 +17,6 @@
     (assert (> fd 0) nil "shm_open failed: ~d" fd)
     fd))
 
-
-;; twice call -> return -1. 
-(setf *fd*
-  (let* ((fd
-	   (shm-open "/tmp/shm-foo"
-		     (logior sb-posix:o-creat sb-posix:o-rdwr) 
-		     #o664)))
-    (assert (> fd 0) nil "shm_open failed: ~d" fd)
-    fd))
 
 
 ;; (shm-unlink "/tmp/shm-foo")
