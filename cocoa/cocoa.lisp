@@ -5,7 +5,10 @@
 (cffi:defcallback dispatch-callback :void nil
   (room))
 
-
-(cffi:foreign-funcall "run_event_loop" :pointer (cffi:callback dispatch-callback))
+;; Cocoa function should be run on main-thread
+(sb-thread:interrupt-thread
+ (sb-thread:main-thread)
+ (lambda ()
+   (cffi:foreign-funcall "run_event_loop" :pointer (cffi:callback dispatch-callback))))
 
 
