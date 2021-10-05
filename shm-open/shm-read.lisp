@@ -8,6 +8,14 @@
 
 (defvar *fd*)
 
+;; it perfectly
+(setf *fd*
+  (alien-funcall (extern-alien "shm_open"
+                               (function int c-string int &optional int))
+		 "/tmp/foo"
+		 (logior sb-posix:o-creat sb-posix:o-rdwr)
+		 #o664))
+
 
 (setf *fd*
   (let* ((fd
