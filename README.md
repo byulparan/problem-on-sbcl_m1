@@ -1,9 +1,10 @@
 # SBCL Problem on Apple Silicon M1
-  I have some problem on SBCL Apple Silicon M1.  
+
+  all problem fixed :-)
+  ~~I have some problem on SBCL Apple Silicon M1.~~  
   https://www.youtube.com/watch?v=m22H8Z8HadI
   
-## cocoa
-  **THIS IS FIXED**
+## cocoa (FIXED)
 
   1. build foreign-library(make)
 	 ```sh
@@ -18,7 +19,7 @@
  ~~look Control stack usage, every click(call lisp-callback) to increase usage in native SBCL-arm64~~   
  ~~but SBCL-x86_64 is not.~~
 
-## when call foreign function for over 10 arguments.
+## when call foreign function for over 10 arguments (FIXED)
 
 ```c
 #include <stdio.h>
@@ -41,11 +42,11 @@ void test_fun(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, in
 > sbcl --load ffi-test.lisp
 ```
 
-## shm-open
+## shm-open (FIXED)
  This is not SBCL's bug. It seems CFFI side problem.  
  ~~Can't access shared memory which opened by sbcl(arm64)~~
 
 
-## glfw-blit-framebuffer
- Error when call gl:blit-framebuffer on sbcl(arm64) but works on ecl(arm64) 
+## glfw-blit-framebuffer (FIXED)
+ ~~Error when call gl:blit-framebuffer on sbcl(arm64) but works on ecl(arm64)~~
       
